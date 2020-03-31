@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from PIL import Image
 
 
 
@@ -15,6 +16,8 @@ html_temp1="""
     </div>
     """
 
+img=Image.open("images/whatsapp.jpg")
+st.image(img,width=695)
 st.markdown(html_temp,unsafe_allow_html=True)
 data=st.file_uploader("Upload a file")
 filename=data
