@@ -29,6 +29,16 @@ st.sidebar.markdown(html_temp1,unsafe_allow_html=True)
 img2=Image.open("images/whats2.jpg")
 st.sidebar.image(img2,width=305)
 
+
+def deleteFile(data):
+    with st.spinner("deleting file permanently"):
+        try:
+            os.remove(data)
+            del data
+        except Exception as e:
+            st.error(str(e))
+    st.success("Done, use other file")
+
 def process_data(data):
     filename=data
     df=pd.read_csv(filename,header=None,error_bad_lines=False,encoding='utf-8')
@@ -126,6 +136,8 @@ def main():
             #     st.write("File Removed")
 
 
+            if st.sidebar.button("delete chat file (permanent)"):
+                deleteFile(data)
 
 
     else:
@@ -192,6 +204,10 @@ def main():
 
             if st.button("It's Completed"):
                 st.balloons()
+            
+            if st.sidebar.button("delete chat file (permanent)"):
+                deleteFile(data)
+
 
 
 if __name__ == "__main__":
