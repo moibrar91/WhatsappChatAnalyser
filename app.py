@@ -189,7 +189,7 @@ def main():
                 # custom plot
 
                 if type_of_plot:
-                    cust_plot=df[selected_columns_names].plot(kind=type_of_plot)
+                    scust_plot=df[selected_columns_names].plot(kind=type_of_plot)
                     st.pyplot()
 
             if st.button("It's Completed"):
